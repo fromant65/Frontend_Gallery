@@ -36,16 +36,13 @@ function App() {
       //console.log(occupied);
       let left, top, background;
       let isOverlapping = true;
-      let iteraciones = 0;
 
       while (isOverlapping) {
-        iteraciones++;
-        if (iteraciones > 10) break;
         left = Math.floor(
-          100 + (window.innerWidth * sizeFactor - cardX - 100) * Math.random()
+          100 + (window.innerWidth * sizeFactor - cardX - 200) * Math.random()
         );
         top = Math.floor(
-          100 + (window.innerHeight * sizeFactor - cardY - 100) * Math.random()
+          100 + (window.innerHeight * sizeFactor - cardY - 200) * Math.random()
         );
         //console.log(left, top);
         let isOverlappingSomewhere = false;
