@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import Logo from "./components/Logo";
 
 const cardX = 200;
 const cardY = 324;
@@ -8,16 +9,18 @@ const sizeFactor = 2;
 const root = document.getElementById("root");
 root.style.width = `${window.innerWidth * sizeFactor}px`;
 root.style.height = `${window.innerHeight * sizeFactor}px`;
-document.addEventListener("mousemove", (e) => {
+const mouseMoveHandle = (e) => {
   const x = e.clientX;
   const y = e.clientY;
-  console.log(x, y);
+  //console.log(x, y);
   const xDecimal = x / window.innerWidth;
   const yDecimal = y / window.innerHeight;
   const panX = (root.offsetWidth - window.innerWidth) * xDecimal;
   const panY = (root.offsetHeight - window.innerHeight) * yDecimal;
   root.style.transform = `translate(${-panX}px, ${-panY}px)`;
-});
+};
+
+document.addEventListener("mousemove", mouseMoveHandle);
 
 function App() {
   /**
@@ -26,8 +29,6 @@ function App() {
    * .App: Contenedor de proyectos
    * .Proyecto: Proyectos
    */
-
-  useEffect(() => {});
 
   useEffect(() => {
     const occupied = [];
@@ -81,7 +82,42 @@ function App() {
 
   return (
     <div className="App">
-      <div className="Proyecto">1</div>
+      <div className="Proyecto" id="glitch_effect">
+        <h1 className="Proyecto__titulo">Glich Text Effect</h1>
+        <div className="Proyecto__abrir">
+          <button
+            className="Proyecto__abrir__open_triangle"
+            onClick={(e) => {
+              const proyecto = document.querySelector(".Proyecto__glitch");
+              console.log(proyecto);
+              root.style.position = "relative";
+              root.style.top = 0;
+              root.style.left = 0;
+              root.style.padding = 0;
+              root.style.margin = 0;
+              root.style.transform = `translate(0px, 0px)`;
+              //root.style.background = "#222222";
+              proyecto.classList.add("active");
+              proyecto.style.opacity = 1;
+              proyecto.style.position = "fixed";
+              proyecto.style.display = "block";
+              proyecto.style.left = 0;
+              proyecto.style.top = 0;
+              proyecto.style.color = "#25ff25";
+              proyecto.style.background = "#000";
+              proyecto.style.width = "100vw";
+              proyecto.style.height = "100vh";
+              root.style.width = `${window.innerWidth}px`;
+              root.style.height = `${window.innerHeight}px`;
+              document.removeEventListener("mousemove", mouseMoveHandle);
+            }}
+          ></button>
+        </div>
+        <div className="Proyecto__glitch">
+          <Logo></Logo>
+        </div>
+      </div>
+
       <div className="Proyecto">2</div>
       <div className="Proyecto">3</div>
       <div className="Proyecto">4</div>

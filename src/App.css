@@ -6,6 +6,10 @@
   overflow: hidden;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 .App {
   position: relative;
 }
@@ -15,8 +19,61 @@
   background-color: black;
   opacity: 0.5;
   border-radius: 20px;
+  transition: all 1s cubic-bezier(.18, .68, .53, .95);
 }
 
-::-webkit-scrollbar {
+.Proyecto__titulo {
+  padding: 10px;
+  user-select: none;
+  text-align: center;
+  font-size: 25px;
+  transition: all 1s cubic-bezier(.18, .68, .53, .95);
+}
+
+.Proyecto__abrir {
+  background-color: #000000;
+  color: rgb(20, 200, 20);
+  filter: saturate(100%);
+  transition: all 1s cubic-bezier(.18, .68, .53, .95);
+  height: 120px;
+  padding: 15px;
+  font-weight: bolder;
+}
+
+.Proyecto__abrir__open_triangle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  border-top: 25px solid transparent;
+  border-left: 50px solid #000000;
+  border-bottom: 25px solid transparent;
+  transition: all 1s cubic-bezier(.18, .68, .53, .95);
+}
+
+.Proyecto:hover {
+  opacity: 1;
+}
+
+.Proyecto:hover>.Proyecto__titulo {
+  padding: 20px;
+}
+
+.Proyecto:hover .Proyecto__abrir__open_triangle {
+  border-left: 50px solid rgb(20, 200, 20);
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+}
+
+#glitch_effect {
+  background-color: rgb(20, 200, 20) !important;
+}
+
+.Proyecto__glitch {
   display: none;
 }
