@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import GlitchEffect from "./pages/GlitchEffect";
+import GlitchCard from "./components/GlitchCard";
+import SolarSystem from "./pages/SolarSystem";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faComputer } from "@fortawesome/free-solid-svg-icons";
+
 const cardX = 200;
 const cardY = 324;
 const sizeFactor = 2;
@@ -39,6 +44,7 @@ function App() {
 
   useEffect(() => {
     setProjectCoords();
+    disableScroll();
   }, []);
 
   useEffect(() => {
@@ -60,14 +66,14 @@ function App() {
         targetproject="glitch-effect"
         onClick={(e) => setIsPageOpen(handleOpenProject(e))}
       >
-        <div className="Proyecto-titulo">Glitch Effect</div>
+        <GlitchCard />
       </div>
       <div
         className="Proyecto"
-        targetproject="Proyecto3"
+        targetproject="solar-system"
         onClick={(e) => setIsPageOpen(handleOpenProject(e))}
       >
-        2
+        <div className="Proyecto-titulo">Solar System</div>
       </div>
       <div
         className="Proyecto"
@@ -88,6 +94,19 @@ function App() {
           X
         </div>
         <GlitchEffect></GlitchEffect>
+      </div>
+      <div className="Proyecto-pagina" id="solar-system">
+        <div
+          className="cerrar-pagina"
+          targetproject="solar-system"
+          onClick={(e) => {
+            setIsPageOpen(handleCloseProject(e));
+          }}
+          style={{ zIndex: 200 }}
+        >
+          X
+        </div>
+        <SolarSystem></SolarSystem>
       </div>
     </div>
   );
@@ -134,12 +153,12 @@ function setProjectCoords() {
   });
 }
 
-function randomBgColor() {
+export function randomBgColor() {
   return Math.floor(Math.random() * 16 ** 6).toString(16);
 }
 
 function handleOpenProject(e) {
-  const targetproject = e.target.getAttribute("targetproject");
+  const targetproject = e.currentTarget.getAttribute("targetproject");
   //console.log(targetproject);
   const project = document.getElementById(targetproject);
   const { panX, panY } = getTransitionCoords(e);
@@ -156,8 +175,23 @@ function handleCloseProject(e) {
   const { panX, panY } = getTransitionCoords(e);
   const windowWidth = window.innerWidth;
   project.style.transition = "all 0.5s ease-in-out";
-  project.style.transform = `translate(${panX - windowWidth}px, ${panY}px)`;
+  project.style.transform = `translate(${panX - windowWidth}px, 0px)`;
   return false;
+}
+
+function disableScroll() {
+  // Get the current page scroll position in the vertical direction
+  let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+  // Get the current page scroll position in the horizontal direction
+
+  let scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+  // if any scroll is attempted,
+  // set this to the previous value
+  window.onscroll = function () {
+    window.scrollTo(scrollLeft, scrollTop);
+  };
 }
 
 export default App;

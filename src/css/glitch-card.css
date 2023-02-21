@@ -1,0 +1,37 @@
+.glitch-card-container {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    padding-top: 50px;
+}
+
+.Proyecto-icon {
+    font-size: 60px;
+    padding: 20px;
+}
+
+.Proyecto-titulo {
+    position: relative;
+    display: inline-block;
+}
+
+.Proyecto-titulo-glitch1,
+.Proyecto-titulo-glitch2,
+.Proyecto-titulo-glitch3 {
+    position: absolute;
+    top: 0;
+    left: 0%;
+    display: inline-block;
+}
+
+.Proyecto-titulo-glitch1 {
+    color: red;
+}
+
+.Proyecto-titulo-glitch2 {
+    color: green;
+}
+
+.Proyecto-titulo-glitch1 {
+    color: blue;
+}

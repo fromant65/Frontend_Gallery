@@ -1,0 +1,198 @@
+.solar-system {
+    position: relative;
+    --space-color: rgba(20, 20, 20, 1);
+    --planet-color: #ddd;
+    --planet-color-2: #f70;
+    --planet-color-3: #374;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--space-color);
+    z-index: 0;
+}
+
+.sol {
+    width: 70px;
+    height: 70px;
+    background-color: rgb(242, 253, 91);
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(2px);
+    z-index: 10;
+}
+
+.sol-brillo {
+    width: 300px;
+    height: 300px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: inherit;
+    left: 50%;
+    top: 50%;
+    opacity: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(150px) brightness(400%);
+    z-index: 9;
+}
+
+.orbita {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*
+    border: 1px solid rgb(218, 66, 66);
+    border-image: linear-gradient(138deg, rgba(218, 66, 66, 1) 0%, rgba(56, 56, 56, 1) 40%, rgba(59, 108, 149, 1) 100%);
+    */
+
+    border-radius: 50%;
+    position: absolute;
+    /*clip-path: polygon(0 15%, 35% 25%, 31% 0, 65% 0%, 65% 25%, 100% 24%, 100% 83%, 75% 85%, 47% 100%, 0 100%, 35% 50%, 0 67%);*/
+    opacity: 100%;
+}
+
+.orbita-1 {
+    width: 200px;
+    height: 200px;
+    background-image: linear-gradient(145deg,
+            hsl(355deg 65% 36%) 0%,
+            hsl(13deg 60% 36%) 11%,
+            hsl(24deg 56% 36%) 19%,
+            hsl(33deg 46% 37%) 27%,
+            hsl(42deg 32% 39%) 34%,
+            hsl(54deg 18% 43%) 41%,
+            hsl(69deg 18% 45%) 48%,
+            hsl(85deg 19% 49%) 56%,
+            hsl(105deg 21% 53%) 66%,
+            hsl(130deg 26% 56%) 79%,
+            hsl(148deg 37% 56%) 100%);
+
+    z-index: 9;
+}
+
+.orbita-2 {
+    width: 350px;
+    height: 350px;
+    background-image: linear-gradient(145deg,
+            hsl(272deg 79% 60%) 0%,
+            hsl(273deg 69% 61%) 2%,
+            hsl(273deg 58% 62%) 5%,
+            hsl(274deg 47% 63%) 9%,
+            hsl(275deg 36% 64%) 14%,
+            hsl(276deg 24% 65%) 20%,
+            hsl(277deg 12% 65%) 27%,
+            hsl(0deg 0% 66%) 37%,
+            hsl(353deg 16% 66%) 48%,
+            hsl(352deg 32% 67%) 60%,
+            hsl(351deg 47% 66%) 71%,
+            hsl(349deg 61% 66%) 80%,
+            hsl(347deg 73% 64%) 88%,
+            hsl(345deg 84% 62%) 95%,
+            hsl(341deg 94% 57%) 100%);
+    z-index: 8;
+}
+
+.orbita-3 {
+    width: 500px;
+    height: 500px;
+    background-image: linear-gradient(145deg,
+            hsl(69deg 90% 55%) 0%,
+            hsl(68deg 83% 60%) 2%,
+            hsl(67deg 74% 64%) 5%,
+            hsl(65deg 64% 66%) 9%,
+            hsl(63deg 54% 69%) 14%,
+            hsl(61deg 42% 71%) 20%,
+            hsl(59deg 30% 73%) 27%,
+            hsl(57deg 15% 76%) 37%,
+            hsl(36deg 31% 74%) 48%,
+            hsl(23deg 48% 75%) 60%,
+            hsl(10deg 62% 77%) 71%,
+            hsl(352deg 71% 78%) 80%,
+            hsl(332deg 67% 76%) 88%,
+            hsl(298deg 46% 72%) 95%,
+            hsl(253deg 77% 78%) 100%);
+    z-index: 7;
+}
+
+.orbita-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 99%;
+    height: 99%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: var(--space-color);
+    z-index: 2;
+}
+
+.orbita-tapada-1,
+.orbita-tapada-2,
+.orbita-tapada-3 {
+    width: 100%;
+    height: 100%;
+    background-color: var(--space-color);
+    position: absolute;
+    z-index: 2;
+}
+
+.orbita-tapada-1 {
+    clip-path: polygon(0 15%, 35% 25%, 31% 0, 70% 0, 56% 41%, 100% 21%, 74% 63%, 60% 58%, 79% 99%, 0 100%, 35% 50%, 0 67%);
+
+}
+
+.orbita-tapada-2 {
+    clip-path: polygon(47% 0, 0% 20%, 9% 49%, 0% 80%, 20% 100%, 50% 70%, 59% 96%, 84% 70%, 70% 50%, 81% 26%, 75% 0, 53% 24%);
+}
+
+.orbita-tapada-3 {
+    clip-path: polygon(27% 0, 27% 25%, 9% 49%, 12% 76%, 20% 100%, 50% 70%, 59% 96%, 84% 70%, 70% 50%, 81% 26%, 75% 0, 51% 13%);
+}
+
+.planeta-1 {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--planet-color);
+    position: absolute;
+    top: 92px;
+    left: 92px;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.planeta-2 {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--planet-color-2);
+    position: absolute;
+    top: 167px;
+    left: 167px;
+    transform: translate(-50%, -50%);
+    /*animation: orbit 15s linear infinite;*/
+    z-index: 10;
+}
+
+.planeta-3 {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: var(--planet-color-3);
+    position: absolute;
+    top: 235px;
+    left: 235px;
+    transform: translate(-50%, -50%);
+    /*animation: orbit 15s linear infinite;*/
+    z-index: 10;
+}
+
+.planeta-brillo {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background-color: var(--planet-color);
+    filter: blur(10px);
+    z-index: 11;
+}
