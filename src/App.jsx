@@ -3,6 +3,7 @@ import "./App.css";
 import GlitchEffect from "./pages/GlitchEffect";
 import GlitchCard from "./components/GlitchCard";
 import SolarSystem from "./pages/SolarSystem";
+import SolarSystemCard from "./components/SolarSystemCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComputer } from "@fortawesome/free-solid-svg-icons";
 
@@ -28,7 +29,23 @@ function getTransitionCoords(e) {
 function handleMouseMove(e) {
   const project = document.querySelector(".Proyecto-pagina");
   const { panX, panY } = getTransitionCoords(e);
-  root.style.transform = `translate(${-panX}px, ${-panY}px)`;
+  root.style.transition = "all 0s ease";
+  /*root.animate(
+    { transform: `translate(${-panX}px, ${-panY}px)` },
+    {
+      duration: 0,
+      fill: "forwards",
+    }
+  );
+  */ root.style.transform = `translate(${-panX}px, ${-panY}px)`;
+  /*
+  project.animate(
+    { transform: `translate(${panX}px, ${panY}px)` },
+    {
+      duration: 0,
+      fill: "forwards",
+    }
+  );*/
   project.style.transform = `translate(${panX}px, ${panY}px)`;
   project.style.transition = "all 0s ease";
 }
@@ -44,19 +61,20 @@ function App() {
 
   useEffect(() => {
     setProjectCoords();
-    disableScroll();
   }, []);
 
   useEffect(() => {
     if (isPageOpen) {
-      console.log("open");
+      //console.log("open");
       document.removeEventListener("mousemove", handleMouseMove);
+      window.scrollTo(0, 0);
     } else {
       setTimeout(() => {
-        console.log("closed");
+        //console.log("closed");
         document.addEventListener("mousemove", handleMouseMove);
-      }, 500);
+      }, 500); //Este timeout es el tiempo que tarda la página en desaparecer
     }
+    window.scrollTo(0, 0); //Ajusta el scroll por si está desfasado
   }, [isPageOpen]);
 
   return (
@@ -69,11 +87,11 @@ function App() {
         <GlitchCard />
       </div>
       <div
-        className="Proyecto"
+        className="Proyecto solar-system-card"
         targetproject="solar-system"
         onClick={(e) => setIsPageOpen(handleOpenProject(e))}
       >
-        <div className="Proyecto-titulo">Solar System</div>
+        <SolarSystemCard></SolarSystemCard>
       </div>
       <div
         className="Proyecto"
@@ -165,6 +183,7 @@ function handleOpenProject(e) {
   const windowWidth = window.innerWidth;
   project.style.transition = "all 0.5s ease-in-out";
   project.style.transform = `translate(${panX + windowWidth}px, ${panY}px)`;
+
   return true;
 }
 
@@ -177,21 +196,6 @@ function handleCloseProject(e) {
   project.style.transition = "all 0.5s ease-in-out";
   project.style.transform = `translate(${panX - windowWidth}px, 0px)`;
   return false;
-}
-
-function disableScroll() {
-  // Get the current page scroll position in the vertical direction
-  let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-  // Get the current page scroll position in the horizontal direction
-
-  let scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-
-  // if any scroll is attempted,
-  // set this to the previous value
-  window.onscroll = function () {
-    window.scrollTo(scrollLeft, scrollTop);
-  };
 }
 
 export default App;

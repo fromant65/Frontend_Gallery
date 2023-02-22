@@ -1,0 +1,105 @@
+.solar-system-card-container {
+    --horizon-color: #020210;
+    --sky-color: #040420;
+    --light-color: #fff;
+    --bright-color: #9900ff;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background-color: var(--sky-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.elipse-horizonte {
+    position: absolute;
+    bottom: 0px;
+    width: 200%;
+    height: 300px;
+    transform: translate(-25%, 175px);
+    border-radius: 50%;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 1) 95%, rgba(255, 255, 255, 1) 100%);
+    z-index: 3;
+}
+
+.elipse-horizonte::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: 1px;
+    border-radius: inherit;
+    background-color: var(--horizon-color);
+}
+
+.light-container {
+    position: absolute;
+    display: block;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    z-index: 2;
+    filter: blur(30px);
+    border-radius: 50%;
+    background-color: var(--bright-color);
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+}
+
+
+.bright-container {
+    position: absolute;
+    display: block;
+    bottom: 0;
+    width: 50%;
+    left: 50%;
+    height: 200px;
+    transform: translateX(-50%);
+    z-index: 2;
+    filter: blur(100px);
+    border-radius: 50%;
+    background-color: var(--bright-color);
+}
+
+.stars {
+    width: inherit;
+    height: inherit;
+    position: inherit;
+}
+
+.falling-star {
+    position: absolute;
+
+    top: -20px;
+    right: -20px;
+    color: white
+}
+
+.falling-star1 {
+    transform: translate(-10px, 5px);
+    font-size: 15px;
+}
+
+.falling-star2 {
+    transform: translate(5px, -5px);
+    font-size: 10px;
+}
+
+.falling-star3 {
+    font-size: 12px;
+    transform: translate(-5px, -5px);
+}
+
+.solar-system-card-title {
+    position: absolute;
+    bottom: 30px;
+    color: white;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bolder;
+    z-index: 4;
+}

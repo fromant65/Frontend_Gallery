@@ -2,15 +2,16 @@
   display: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   padding: 0;
   margin: 0;
 }
 
 #root {
-  /*
-  width: 200vw;
-  height: 200vh;*/
   position: absolute;
   overflow: hidden;
 }
