@@ -1,0 +1,179 @@
+.wheel {
+    color: white;
+    background: #888;
+}
+
+.wheel-component {
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.wheel-1 {
+    animation: ani-1 2s ease-in-out infinite;
+    background: #f00;
+}
+
+.wheel-2 {
+    animation: ani-2 2s ease-in-out 0.125s infinite;
+    background: #f80;
+}
+
+.wheel-3 {
+    animation: ani-3 2s ease-in-out 0.25s infinite;
+    background: #ff0;
+}
+
+.wheel-4 {
+    animation: ani-4 2s ease-in-out 0.375s infinite;
+    background: #8f8;
+}
+
+.wheel-5 {
+    animation: ani-5 2s ease-in-out 0.5s infinite;
+    background: #088;
+}
+
+.wheel-6 {
+    animation: ani-6 2s ease-in-out 0.625s infinite;
+    background: #88f;
+}
+
+.wheel-7 {
+    animation: ani-7 2s ease-in-out 0.75s infinite;
+    background: #f0f;
+}
+
+.wheel-8 {
+    animation: ani-8 2s ease-in-out 0.875s infinite;
+    background: #f08;
+}
+
+.wheel-component {
+    animation-timing-function: cubic-bezier(.36, 0, .63, 1);
+}
+
+@keyframes ani-1 {
+    0% {
+        transform: translateX(100px);
+    }
+
+    50% {
+        transform: translateX(-100px);
+    }
+
+    100% {
+        transform: translateX(100px);
+    }
+
+}
+
+@keyframes ani-2 {
+    0% {
+        transform: translate(92px, 38px);
+    }
+
+    50% {
+        transform: translate(-92px, -38px);
+    }
+
+    100% {
+        transform: translate(92px, 38px);
+    }
+
+}
+
+@keyframes ani-3 {
+    0% {
+        transform: translate(71px, 71px);
+    }
+
+    50% {
+        transform: translate(-71px, -71px);
+    }
+
+    100% {
+        transform: translate(71px, 71px);
+    }
+
+}
+
+@keyframes ani-4 {
+    0% {
+        transform: translate(38px, 92px);
+    }
+
+    50% {
+        transform: translate(-38px, -92px);
+    }
+
+    100% {
+        transform: translate(38px, 92px);
+    }
+
+}
+
+@keyframes ani-5 {
+    0% {
+        transform: translateY(100px);
+    }
+
+    50% {
+        transform: translateY(-100px);
+    }
+
+    100% {
+        transform: translateY(100px);
+    }
+
+}
+
+@keyframes ani-6 {
+    0% {
+        transform: translate(-38px, 92px);
+    }
+
+    50% {
+        transform: translate(38px, -92px);
+    }
+
+    100% {
+        transform: translate(-38px, 92px);
+    }
+
+}
+
+@keyframes ani-7 {
+    0% {
+        transform: translate(-71px, 71px);
+    }
+
+    50% {
+        transform: translate(71px, -71px);
+    }
+
+    100% {
+        transform: translate(-71px, 71px);
+    }
+
+}
+
+@keyframes ani-8 {
+    0% {
+        transform: translate(-92px, 38px);
+    }
+
+    50% {
+        transform: translate(92px, -38px);
+    }
+
+    100% {
+        transform: translate(-92px, 38px);
+    }
+
+}

@@ -4,6 +4,7 @@ import GlitchEffect from "./pages/GlitchEffect";
 import GlitchCard from "./components/GlitchCard";
 import SolarSystem from "./pages/SolarSystem";
 import SolarSystemCard from "./components/SolarSystemCard";
+import LoadingWheel from "./pages/LoadingWheel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComputer } from "@fortawesome/free-solid-svg-icons";
 
@@ -37,7 +38,8 @@ function handleMouseMove(e) {
       fill: "forwards",
     }
   );
-  */ root.style.transform = `translate(${-panX}px, ${-panY}px)`;
+  */
+  root.style.transform = `translate(${-panX}px, ${-panY}px)`;
   /*
   project.animate(
     { transform: `translate(${panX}px, ${panY}px)` },
@@ -95,10 +97,10 @@ function App() {
       </div>
       <div
         className="Proyecto"
-        targetproject="Proyecto3"
+        targetproject="loading-wheel"
         onClick={(e) => setIsPageOpen(handleOpenProject(e))}
       >
-        3
+        Loading Wheel
       </div>
       {/*Separador de Cards y Paginas*/}
       <div className="Proyecto-pagina" id="glitch-effect">
@@ -125,6 +127,19 @@ function App() {
           X
         </div>
         <SolarSystem></SolarSystem>
+      </div>
+      <div className="Proyecto-pagina" id="loading-wheel">
+        <div
+          className="cerrar-pagina"
+          targetproject="loading-wheel"
+          onClick={(e) => {
+            setIsPageOpen(handleCloseProject(e));
+          }}
+          style={{ zIndex: 200 }}
+        >
+          X
+        </div>
+        <LoadingWheel></LoadingWheel>
       </div>
     </div>
   );
@@ -183,7 +198,8 @@ function handleOpenProject(e) {
   const windowWidth = window.innerWidth;
   project.style.transition = "all 0.5s ease-in-out";
   project.style.transform = `translate(${panX + windowWidth}px, ${panY}px)`;
-
+  e.currentTarget.style.transition = "all 0.5s ease";
+  e.currentTarget.style.height = "0px";
   return true;
 }
 
@@ -195,6 +211,10 @@ function handleCloseProject(e) {
   const windowWidth = window.innerWidth;
   project.style.transition = "all 0.5s ease-in-out";
   project.style.transform = `translate(${panX - windowWidth}px, 0px)`;
+  const cards = document.querySelectorAll(".Proyecto");
+  cards.forEach((card) => {
+    card.style.height = "324px";
+  });
   return false;
 }
 
