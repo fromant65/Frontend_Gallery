@@ -1,0 +1,66 @@
+.loading-card-container {
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    background-color: #aaa;
+}
+
+.loading-wheel {
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+
+.loading-wheel div {
+    background-color: rgba(80, 80, 80, 0.5);
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.dot8 {
+    left: 0px;
+    top: 66px;
+}
+
+.dot7 {
+    left: 33px;
+    top: 100px;
+}
+
+.dot6 {
+    left: 66px;
+    top: 100px;
+}
+
+.dot5 {
+    left: 100px;
+    top: 66px;
+}
+
+.dot4 {
+    left: 100px;
+    top: 33px;
+}
+
+.dot3 {
+    left: 66px;
+    top: 0px;
+}
+
+.dot2 {
+    left: 33px;
+    top: 0px;
+}
+
+.dot1 {
+    left: 0px;
+    top: 33px;
+}

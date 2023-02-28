@@ -5,6 +5,7 @@ import GlitchCard from "./components/GlitchCard";
 import SolarSystem from "./pages/SolarSystem";
 import SolarSystemCard from "./components/SolarSystemCard";
 import LoadingWheel from "./pages/LoadingWheel";
+import LoadingCard from "./components/LoadingCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComputer } from "@fortawesome/free-solid-svg-icons";
 
@@ -100,7 +101,7 @@ function App() {
         targetproject="loading-wheel"
         onClick={(e) => setIsPageOpen(handleOpenProject(e))}
       >
-        Loading Wheel
+        <LoadingCard></LoadingCard>
       </div>
       {/*Separador de Cards y Paginas*/}
       <div className="Proyecto-pagina" id="glitch-effect">

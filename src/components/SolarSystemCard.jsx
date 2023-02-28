@@ -16,7 +16,8 @@ const SolarSystemCard = () => {
   return (
     <div
       className="solar-system-card-container"
-      onClick={(e) => fallingStars(e)}
+      onMouseEnter={(e) => fallingStars(e)}
+      onMouseLeave={(e) => risingStars(e)}
     >
       <div className="elipse-horizonte"></div>
       <div className="light-container"></div>
@@ -90,6 +91,15 @@ function fallingStars(e) {
       easing: "ease-in",
     }
   );
+}
+
+function risingStars(e) {
+  let fs1 = document.querySelector(".falling-star1");
+  let fs2 = document.querySelector(".falling-star2");
+  let fs3 = document.querySelector(".falling-star3");
+  fs1.style.transform = "translate(100px, -200px)";
+  fs2.style.transform = "translate(120px, -240px)";
+  fs3.style.transform = "translate(130px, -210px)";
 }
 
 export default SolarSystemCard;
