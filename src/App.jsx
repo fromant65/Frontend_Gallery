@@ -3,9 +3,11 @@ import "./App.css";
 import GlitchEffect from "./pages/GlitchEffect";
 import GlitchCard from "./components/GlitchCard";
 import SolarSystem from "./pages/SolarSystem";
+import HoverGallery from "./pages/HoverGallery";
 import SolarSystemCard from "./components/SolarSystemCard";
 import LoadingWheel from "./pages/LoadingWheel";
 import LoadingCard from "./components/LoadingCard";
+import HoverGalleryCard from "./components/HoverGalleryCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComputer } from "@fortawesome/free-solid-svg-icons";
 
@@ -103,6 +105,13 @@ function App() {
       >
         <LoadingCard></LoadingCard>
       </div>
+      <div
+        className="Proyecto"
+        targetproject="hover-gallery"
+        onClick={(e) => setIsPageOpen(handleOpenProject(e))}
+      >
+        <HoverGalleryCard></HoverGalleryCard>
+      </div>
       {/*Separador de Cards y Paginas*/}
       <div className="Proyecto-pagina" id="glitch-effect">
         <div
@@ -141,6 +150,19 @@ function App() {
           X
         </div>
         <LoadingWheel></LoadingWheel>
+      </div>
+      <div className="Proyecto-pagina" id="hover-gallery">
+        <div
+          className="cerrar-pagina"
+          targetproject="hover-gallery"
+          onClick={(e) => {
+            setIsPageOpen(handleCloseProject(e));
+          }}
+          style={{ zIndex: 200 }}
+        >
+          X
+        </div>
+        <HoverGallery></HoverGallery>
       </div>
     </div>
   );

@@ -1,0 +1,35 @@
+.hover-gallery-card {
+    width: inherit;
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('https://wallpaperaccess.com/full/4870281.jpg');
+    background-size: cover;
+    position: relative;
+}
+
+.hover-gallery-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: inherit;
+    background-size: inherit;
+    filter: blur(2px) grayscale(1);
+    transition: all 0.5s ease;
+    z-index: 0;
+}
+
+.hover-gallery-card:hover::before {
+    filter: blur(0px) grayscale(0);
+}
+
+.hover-gallery-card-text {
+    color: white;
+    position: relative;
+    text-shadow: 0px 0px 0.5em black;
+    z-index: 10;
+}
